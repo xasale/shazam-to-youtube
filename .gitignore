@@ -1,16 +1,9 @@
-# Java / Spring Boot
-shazam-extractor-service/target/
-shazam-extractor-service/.mvn/
-
 # Laravel
 youtube-resolver-service/vendor/
 youtube-resolver-service/.env
 youtube-resolver-service/node_modules/
 youtube-resolver-service/storage/app/output/*.txt
 youtube-resolver-service/database/database.sqlite
-
-# Node helper
-shazam-scraper-helper/node_modules/
 
 # Γενικά
 .DS_Store
