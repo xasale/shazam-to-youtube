@@ -9,7 +9,7 @@ class Song extends Model
     //
 
     protected $fillable = [
-        // εδώ μπαίνουν τα ονόματα των στηλών σου
+        // εδώ μπαίνουν τα ονόματα των στηλών
         'artist',
         'title',
         'youtube_link',

@@ -19,7 +19,7 @@ class ResolveController extends Controller
         $songs = [];
 
         foreach ($lines as $line) {
-            $columns = str_getcsv($line, ","); // το CSV σου χωρίζει με κόμμα, όχι με tab
+            $columns = str_getcsv($line, ","); // το CSV χωρίζει με κόμμα, όχι με tab
 
             // dd($columns); //  "dump and die" — σταματά την εκτέλεση και τυπώνει την τιμή.
 
