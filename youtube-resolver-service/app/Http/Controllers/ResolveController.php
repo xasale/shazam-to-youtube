@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Song;
+use Illuminate\Support\Facades\Http;
 
 class ResolveController extends Controller
 {
@@ -19,6 +20,7 @@ class ResolveController extends Controller
         // Παράλειψε τις πρώτες 2 γραμμές
         $lines = array_slice($lines, 2);
 
+        Song::query()->update(['shazam_order' => null]); // μηδενίζουμε το shazam_order όλων των τραγουδιών
 
         foreach ($lines as $line) {
             $columns = str_getcsv($line, ","); // το CSV χωρίζει με κόμμα, όχι με tab
@@ -28,7 +30,9 @@ class ResolveController extends Controller
             $song = Song::firstOrNew(
                 ['artist' => $columns[3], 'title' => $columns[2]]
             );
-            $song->shazam_order = $columns[0];
+            if (is_null($song->shazam_order) || $columns[0] < $song->shazam_order) {
+                $song->shazam_order = $columns[0];
+            }
             if (!$song->exists) {
                 $song->status = 'pending';
             }

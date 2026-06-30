@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('youtube_link')->nullable();
             $table->enum('status', ['pending', 'resolved', 'failed'])->default('pending');
-            $table->integer('shazam_order');
+            $table->integer('shazam_order')->nullable();
             $table->timestamp('resolved_at')->nullable();
             $table->timestamps();
         });
